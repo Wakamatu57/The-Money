@@ -1,5 +1,5 @@
 package money;
 
 interface Expression {
-    Money reduced(String to);
+    Money reduced(Bank bank, String to);
 }
