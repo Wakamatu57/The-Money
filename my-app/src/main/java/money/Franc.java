@@ -6,6 +6,6 @@ public class Franc extends Money {
     }
 
     Money times(int multipliction) {
-        return Money.franc(this.amount * multipliction);
+        return new Money(this.amount * multipliction, this.currency);
     }
 }
