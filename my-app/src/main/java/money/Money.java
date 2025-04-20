@@ -7,8 +7,8 @@ class Money {
         this.amount = amount;
         this.currency = currency;
     }
-    Money times(int multiplier) {
-        return null;
+    Money times(int multipliction) {
+        return new Money(this.amount * multipliction, this.currency);
     }
     String currency() {
         return this.currency;
