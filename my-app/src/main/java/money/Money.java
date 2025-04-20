@@ -10,6 +10,9 @@ class Money {
     Money times(int multipliction) {
         return new Money(this.amount * multipliction, this.currency);
     }
+    Money plus(Money addend) {
+        return new Money(this.amount + addend.amount, this.currency);
+    }
     String currency() {
         return this.currency;
     }
