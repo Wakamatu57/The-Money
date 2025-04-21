@@ -71,15 +71,22 @@ public class MoneyTest {
 
     @Test
     public void testMixedAddtion() {
-        Money fiveBucks = Money.dollar(5);
-        Money tecFrancs = Money.franc(10);
+        Expression fiveBucks = Money.dollar(5);
+        Expression tecFrancs = Money.franc(10);
         Bank bank = new Bank();
         bank.addRate("CHF", "USD", 2);
         Money result = bank.reduced(fiveBucks.plus(tecFrancs), "USD");
         assertEquals(Money.dollar(10), result);
+    }
 
-
-
+    @Test
+    public void testSumplusMoney() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tecFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduced(new Sum(fiveBucks, tecFrancs).plus(fiveBucks), "USD");
+        assertEquals(Money.dollar(15), result);
     }
 
 }
