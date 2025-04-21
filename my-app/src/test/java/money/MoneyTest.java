@@ -89,4 +89,14 @@ public class MoneyTest {
         assertEquals(Money.dollar(15), result);
     }
 
+    @Test
+    public void testSumTimes() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tecFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduced(new Sum(fiveBucks, tecFrancs).times(2), "USD");
+        assertEquals(Money.dollar(20), result);
+    }
+
 }
